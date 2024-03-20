@@ -1,16 +1,19 @@
 import Header from '@/components/Header';
 import { Outlet } from 'react-router-dom';
 import Footer from '@/components/Footer';
-import { StyledDashboardLayout } from './Layout.styled';
+import Sidebar from '@/components/Sidebar';
+import { StyledDashboardLayout } from './DashboardLayout.styled';
 
 const DashboardLayout = () => {
   return (
     <StyledDashboardLayout>
-      <div className='layout-sidebar'>sidebar</div>
+      <Sidebar />
       <div className='layout-content'>
         <Header />
-        <Outlet />
-        <Footer />
+        <div className='layout-outlet'>
+          <Outlet />
+          <Footer />
+        </div>
       </div>
     </StyledDashboardLayout>
   );

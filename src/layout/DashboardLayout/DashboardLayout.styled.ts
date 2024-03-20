@@ -5,13 +5,19 @@ export const StyledDashboardLayout = styled.div`
   width: 100vw;
   display: flex;
   overflow: hidden;
-  .layout-sidebar {
-    padding: 20px;
-    min-width: 16vw;
-  }
 
   .layout-content {
     flex: 1;
+    overflow-y: auto;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+
+  .layout-outlet {
     padding: 20px;
+    flex: 1;
+    overflow-y: auto;
   }
 `;
