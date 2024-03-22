@@ -7,6 +7,12 @@ export const StyledSidebar = styled.div`
   border-right: 1px solid;
   background-color: #006666;
 
+  .sidebar-logo {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+  }
+
   #sidebar a {
     text-align: center;
     border-radius: 20px;

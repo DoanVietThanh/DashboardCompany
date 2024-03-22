@@ -1,6 +1,6 @@
 export const dashboardSampleV0_4MealDetailData = [
   {
-    report_date: '2024-02-23',
+    report_date: "2024-02-23",
     total: {
       total_actual: {
         count: 18,
@@ -23,8 +23,8 @@ export const dashboardSampleV0_4MealDetailData = [
     },
     outlet: [
       {
-        outlet_code: 'FLA',
-        outlet_name: 'Flavours Restaurant',
+        outlet_code: "FLA",
+        outlet_name: "Flavours Restaurant",
         total: {
           total_actual: {
             count: 1,
@@ -67,21 +67,21 @@ export const dashboardSampleV0_4MealDetailData = [
             },
           },
           records: {
-            '15:41:19': {
-              room: '1001',
-              guest_names: 'Nguyen Hoang Long',
-              package_code: 'ABF',
+            "15:41:19": {
+              room: "1001",
+              guest_names: "Nguyen Hoang Long",
+              package_code: "ABF",
               count: 2,
-              pax: 'adults',
-              remark: '',
+              pax: "adults",
+              remark: "",
             },
-            '15:41:20': {
-              room: '1001',
-              guest_names: 'Nguyen Hoang Long',
-              package_code: 'ABF',
+            "15:41:20": {
+              room: "1001",
+              guest_names: "Nguyen Hoang Long",
+              package_code: "ABF",
               count: 2,
-              pax: 'adults',
-              remark: '',
+              pax: "adults",
+              remark: "",
             },
           },
         },
@@ -107,21 +107,21 @@ export const dashboardSampleV0_4MealDetailData = [
             },
           },
           records: {
-            '16:41:19': {
-              room: '1002',
-              guest_names: 'Phan Le Minh An',
-              package_code: 'ABF',
+            "16:41:19": {
+              room: "1002",
+              guest_names: "Phan Le Minh An",
+              package_code: "ABF",
               count: 2,
-              pax: 'adults',
-              remark: '',
+              pax: "adults",
+              remark: "",
             },
-            '16:41:20': {
-              room: '1002',
-              guest_names: 'Phan Le Minh An',
-              package_code: 'ABF',
+            "16:41:20": {
+              room: "1002",
+              guest_names: "Phan Le Minh An",
+              package_code: "ABF",
               count: 2,
-              pax: 'adults',
-              remark: '',
+              pax: "adults",
+              remark: "",
             },
           },
         },
@@ -147,21 +147,21 @@ export const dashboardSampleV0_4MealDetailData = [
             },
           },
           records: {
-            '12:41:19': {
-              room: '1003',
-              guest_names: 'Tien Len',
-              package_code: 'ABF',
+            "12:41:19": {
+              room: "1003",
+              guest_names: "Tien Len",
+              package_code: "ABF",
               count: 2,
-              pax: 'adults',
-              remark: '',
+              pax: "adults",
+              remark: "",
             },
-            '12:41:20': {
-              room: '1003',
-              guest_names: 'Tien Len',
-              package_code: 'ABF',
+            "12:41:20": {
+              room: "1003",
+              guest_names: "Tien Len",
+              package_code: "ABF",
               count: 2,
-              pax: 'adults',
-              remark: '',
+              pax: "adults",
+              remark: "",
             },
           },
         },
@@ -169,3 +169,17 @@ export const dashboardSampleV0_4MealDetailData = [
     ],
   },
 ];
+
+// const dataSource = mealDetailData?.map((item) => ({
+//   key: new Date().toISOString(),
+//   date: item.report_date,
+//   aCount: item.total.adults_actual.count,
+//   cCount: item.total.children_actual.count,
+//   aSales: item.total.adults_actual.sales,
+//   cSales: item.total.children_actual.sales,
+//   count: item.total.total_actual.count,
+//   countPercentage: item.total.total_actual.percentage_count,
+//   sales: item.total.total_actual.sales,
+//   salesPercentage: item.total.total_actual.percentage_sales,
+//   children: childrenRcvDataSource(item.outlet),
+// }));

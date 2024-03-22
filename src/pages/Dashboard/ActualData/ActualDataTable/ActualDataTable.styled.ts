@@ -5,4 +5,8 @@ export const StyledActualDataTable = styled.div`
     display: flex;
     align-items: center;
   }
+
+  .ant-table-cell {
+    align-items: center;
+  }
 `;

@@ -2,176 +2,77 @@ import { GlanceReport } from "@/types/glanceReport.types";
 import { Button, Divider, Flex, Table, TreeSelect, Typography } from "antd";
 import { useState } from "react";
 import { StyledActualDataTable } from "./ActualDataTable.styled";
+import { filterData, initTotal } from "@/constants/ActualDataTable.constants";
+import { TableRowSelection } from "antd/es/table/interface";
+import ActualDataSummary from "./ActualDataSummary";
 
 type ActualDataTableProps = {
   actualJSONData: GlanceReport[];
 };
-const ActualDataTable = ({ actualJSONData }: ActualDataTableProps) => {
-  const { Column, ColumnGroup } = Table;
-  const { SHOW_PARENT } = TreeSelect;
-  const [filterColumnValue, setFilterColumnValue] = useState([] as string[]);
 
-  const onChange = (newFilterColumnValue: string[]) => {
-    console.log("onChange ", newFilterColumnValue);
+const ActualDataTable = ({ actualJSONData }: ActualDataTableProps) => {
+  const { SHOW_PARENT } = TreeSelect;
+  const { Column, ColumnGroup } = Table;
+  const [filterColumnValue, setFilterColumnValue] = useState([] as string[]);
+  const [selectedRowKeys, setSelectedRowKeys] = useState<React.Key[]>([]);
+
+  const handleSelectHiddenColumns = (newFilterColumnValue: string[]) => {
     setFilterColumnValue(newFilterColumnValue);
   };
-
-  const filterData = [
-    {
-      title: "Property",
-      value: "propertyCode",
-      key: "propertyCode",
-    },
-    {
-      title: "Property Name",
-      value: "propertyName",
-      key: "propertyName",
-    },
-    {
-      title: "Total Room in Hotel",
-      value: "totalRoomInHotel",
-      key: "totalRoomInHotel",
-    },
-    {
-      title: "Room Revenue",
-      value: "roomRevenue",
-      key: "roomRevenue",
-    },
-    {
-      title: "F&B Revenue",
-      value: "f_bRevenue",
-      key: "f_bRevenue",
-    },
-    {
-      title: "Other Revenue",
-      value: "otherRevenue",
-      key: "otherRevenue",
-    },
-    {
-      title: "Total Revenue",
-      value: "totalRevenue",
-      key: "totalRevenue",
-    },
-    {
-      title: "Occ %",
-      value: "occPercentage",
-      key: "occPercentage",
-    },
-    {
-      title: "Ddr",
-      value: "adr",
-      key: "adr",
-    },
-    {
-      title: "Hotel Room",
-      value: "hotelRoom",
-      key: "hotelRoom",
-    },
-    {
-      title: "Available Rooms",
-      value: "availableRooms",
-      key: "availableRooms",
-    },
-    {
-      title: "Rev",
-      value: "rev",
-      key: "rev",
-      children: [
-        {
-          title: "Occupied Rooms",
-          value: "rev.occupiedRooms",
-          key: "rev.occupiedRooms",
-        },
-        {
-          title: "Group Rooms",
-          value: "rev.groupRooms",
-          key: "rev.groupRooms",
-        },
-        {
-          title: "Transient Rooms",
-          value: "rev.transientRooms",
-          key: "rev.transientRooms",
-        },
-      ],
-    },
-    {
-      title: "Rn",
-      value: "rn",
-      key: "rn",
-      children: [
-        {
-          title: "Occupied Rooms",
-          value: "rn.occupiedRooms",
-          key: "rn.occupiedRooms",
-        },
-        {
-          title: "Group Rooms",
-          value: "rn.groupRooms",
-          key: "rn.groupRooms",
-        },
-        {
-          title: "Transient Rooms",
-          value: "rn.transientRooms",
-          key: "rn.transientRooms",
-        },
-      ],
-    },
-    {
-      title: "Occ",
-      value: "occ",
-      key: "occ",
-      children: [
-        {
-          title: "Occupied Rooms",
-          value: "occ.occupiedRooms",
-          key: "occ.occupiedRooms",
-        },
-        {
-          title: "Group Rooms",
-          value: "occ.groupRooms",
-          key: "occ.groupRooms",
-        },
-        {
-          title: "Transient Rooms",
-          value: "occ.transientRooms",
-          key: "occ.transientRooms",
-        },
-      ],
-    },
-    {
-      title: "Adr Profit",
-      value: "adrProfit",
-      key: "adrProfit",
-      children: [
-        {
-          title: "Occupied Rooms",
-          value: "adrProfit.occupiedRooms",
-          key: "adrProfit.occupiedRooms",
-        },
-        {
-          title: "Group Rooms",
-          value: "adrProfit.groupRooms",
-          key: "adrProfit.groupRooms",
-        },
-        {
-          title: "Transient Rooms",
-          value: "adrProfit.transientRooms",
-          key: "adrProfit.transientRooms",
-        },
-      ],
-    },
-  ];
 
   const tProps = {
     treeData: filterData,
     value: filterColumnValue,
-    onChange,
+    onChange: handleSelectHiddenColumns,
     treeCheckable: true,
     showCheckedStrategy: SHOW_PARENT,
-    placeholder: "Please select",
+    placeholder: "Select hidden columns",
     style: {
       width: "100%",
     },
+  };
+
+  const onSelectChange = (newSelectedRowKeys: React.Key[]) => {
+    console.log("selectedRowKeys changed: ", newSelectedRowKeys);
+    setSelectedRowKeys(newSelectedRowKeys);
+  };
+
+  const rowSelection: TableRowSelection<GlanceReport> = {
+    selectedRowKeys,
+    onChange: onSelectChange,
+    selections: [
+      Table.SELECTION_ALL,
+      Table.SELECTION_INVERT,
+      Table.SELECTION_NONE,
+      {
+        key: "odd",
+        text: "Select Odd Row",
+        onSelect: (changeableRowKeys) => {
+          let newSelectedRowKeys = [];
+          newSelectedRowKeys = changeableRowKeys.filter((_, index) => {
+            if (index % 2 !== 0) {
+              return false;
+            }
+            return true;
+          });
+          setSelectedRowKeys(newSelectedRowKeys);
+        },
+      },
+      {
+        key: "even",
+        text: "Select Even Row",
+        onSelect: (changeableRowKeys) => {
+          let newSelectedRowKeys = [];
+          newSelectedRowKeys = changeableRowKeys.filter((_, index) => {
+            if (index % 2 !== 0) {
+              return true;
+            }
+            return false;
+          });
+          setSelectedRowKeys(newSelectedRowKeys);
+        },
+      },
+    ],
   };
 
   return (
@@ -187,28 +88,23 @@ const ActualDataTable = ({ actualJSONData }: ActualDataTableProps) => {
           </Button>
         </Flex>
       </Flex>
+
       <Divider />
-      <Table dataSource={actualJSONData} scroll={{ x: 1500, y: 450 }}>
-        <Column
-          title="Property"
-          dataIndex="propertyCode"
-          key="firstName"
-          fixed={"left"}
-          width={100}
-          hidden={filterColumnValue.includes("propertyCode")}
-        />
-        <Column
-          title="Property Name"
-          dataIndex="propertyName"
-          key="propertyName"
-          width={300}
-          hidden={filterColumnValue.includes("propertyName")}
-        />
+
+      <Table
+        size="small"
+        dataSource={actualJSONData}
+        rowSelection={rowSelection}
+        scroll={{ x: 1500, y: 400 }}
+        summary={(data) => <ActualDataSummary data={data} filterColumnValue={filterColumnValue} />}
+      >
+        <Column title="Property" dataIndex="propertyCode" key="propertyCode" fixed={"left"} width={100} hidden={filterColumnValue.includes("propertyCode")} />
+        <Column title="Property Name" dataIndex="propertyName" key="propertyName" width={300} hidden={filterColumnValue.includes("propertyName")} />
         <Column
           title="Total Room in Hotel"
           dataIndex="totalRoomInHotel"
           key="totalRoomInHotel"
-          width={100}
+          width={110}
           hidden={filterColumnValue.includes("totalRoomInHotel")}
           sorter={(a: GlanceReport, b: GlanceReport) => a.totalRoomInHotel - b.totalRoomInHotel}
         />
@@ -250,22 +146,17 @@ const ActualDataTable = ({ actualJSONData }: ActualDataTableProps) => {
           key="occPercentage"
           hidden={filterColumnValue.includes("occPercentage")}
           width={100}
+          render={(value) => `${value} %`}
           sorter={(a: GlanceReport, b: GlanceReport) => a.occPercentage - b.occPercentage}
         />
-        <Column
-          title="ADR"
-          dataIndex="adr"
-          key="adr"
-          hidden={filterColumnValue.includes("adr")}
-          width={100}
-          sorter={(a: GlanceReport, b: GlanceReport) => a.adr - b.adr}
-        />
+        <Column title="ADR" dataIndex="adr" key="adr" hidden={filterColumnValue.includes("adr")} width={100} sorter={(a: GlanceReport, b: GlanceReport) => a.adr - b.adr} />
         <Column
           title="Hotel Room"
           dataIndex="hotelRoom"
           key="hotelRoom"
           hidden={filterColumnValue.includes("hotelRoom")}
           width={100}
+          render={(value) => `${value} %`}
           sorter={(a: GlanceReport, b: GlanceReport) => a.hotelRoom - b.hotelRoom}
         />
         <Column
@@ -331,7 +222,7 @@ const ActualDataTable = ({ actualJSONData }: ActualDataTableProps) => {
           />
         </ColumnGroup>
 
-        <ColumnGroup title="Occ" hidden={filterColumnValue.includes("occ")}>
+        <ColumnGroup title="Occ %" hidden={filterColumnValue.includes("occ")}>
           <Column
             title="Occupied Rooms"
             dataIndex={["occ", "occupiedRooms"]}
@@ -358,7 +249,7 @@ const ActualDataTable = ({ actualJSONData }: ActualDataTableProps) => {
           />
         </ColumnGroup>
 
-        <ColumnGroup title="ADR Profit" hidden={filterColumnValue.includes("adrProfit")}>
+        <ColumnGroup title="ADR %" hidden={filterColumnValue.includes("adrProfit")}>
           <Column
             title="Occupied Rooms"
             dataIndex={["adrProfit", "occupiedRooms"]}

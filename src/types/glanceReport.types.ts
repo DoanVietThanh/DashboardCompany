@@ -5,7 +5,7 @@ interface RoomGlanceReport {
 }
 
 export interface GlanceReport {
-  key?: string;
+  key?: number;
   propertyCode: string;
   propertyName: string;
   totalRoomInHotel: number;

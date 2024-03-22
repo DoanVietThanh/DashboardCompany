@@ -1,11 +1,12 @@
-import { dashboardSampleV0_4MealDetailData as mealDetailData } from "@/data/sampledata_meal_detail";
-import { Table, Typography } from "antd";
-import { StyledPeriodDetail } from "./PeriodDetail.styled";
 import PeriodTable from "@/components/PeriodTable";
+import { dashboardSampleV0_4MealDetailData as mealDetailData } from "@/data/sampledata_meal_detail";
+import { Table } from "antd";
+import DownloadBtn from "./DownloadBtn";
+import { StyledPeriodDetail } from "./PeriodDetail.styled";
 
 const PeriodDetail = () => {
   const columns = [
-    { title: "Date", dataIndex: "date", key: "date" },
+    { title: "Date", dataIndex: "date", key: "date", width: "10%" },
     { title: "RCV", dataIndex: "rcv", key: "rcv" },
     { title: "Period", dataIndex: "period", key: "period" },
     { title: "A.Count", dataIndex: "aCount", key: "aCount" },
@@ -79,7 +80,7 @@ const PeriodDetail = () => {
 
   return (
     <StyledPeriodDetail>
-      <Typography.Title level={3}>Period Detail</Typography.Title>
+      <DownloadBtn dataSource={dataSource} />
       <Table size="small" columns={columns} dataSource={dataSource} />
     </StyledPeriodDetail>
   );
