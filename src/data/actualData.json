@@ -1,0 +1,347 @@
+[
+  {
+    "propertyCode": "SPH",
+    "propertyName": "Sokha Phnom Penh Hotel",
+    "totalRoomInHotel": 744,
+    "roomRevenue": 234458,
+    "f_bRevenue": 609316,
+    "otherRevenue": 51547,
+    "totalRevenue": 895322,
+    "occPercentage": 22.8,
+    "adr": 57.59,
+    "hotelRoom": 17.856,
+    "availableRooms": 13785,
+    "rev": {
+      "occupiedRooms": 234458,
+      "groupRooms": 145896,
+      "transientRooms": 88561
+    },
+    "rn": {
+      "occupiedRooms": 4071,
+      "groupRooms": 2508,
+      "transientRooms": 1563
+    },
+    "occ": {
+      "occupiedRooms": 22.8,
+      "groupRooms": 14.0,
+      "transientRooms": 8.8
+    },
+    "adrProfit": {
+      "occupiedRooms": 57.59,
+      "groupRooms": 58.17,
+      "transientRooms": 56.66
+    }
+  },
+  {
+    "propertyCode": "ALL",
+    "propertyName": "Master",
+    "totalRoomInHotel": 778,
+    "roomRevenue": 275146,
+    "f_bRevenue": 585163,
+    "otherRevenue": 52757,
+    "totalRevenue": 992080,
+    "occPercentage": 22.3,
+    "adr": 59.46,
+    "hotelRoom": 15217.745,
+    "availableRooms": 14284,
+    "rev": {
+      "occupiedRooms": 256666,
+      "groupRooms": 120235,
+      "transientRooms": 84700
+    },
+    "rn": { "occupiedRooms": 4182, "groupRooms": 2587, "transientRooms": 1941 },
+    "occ": {
+      "occupiedRooms": 24.9,
+      "groupRooms": 18.6,
+      "transientRooms": 10.5
+    },
+    "adrProfit": {
+      "occupiedRooms": 66.16,
+      "groupRooms": 56.28,
+      "transientRooms": 63.19
+    }
+  },
+  {
+    "propertyCode": "PP02",
+    "propertyName": "Sokha Phnom Penh Residence",
+    "totalRoomInHotel": 872,
+    "roomRevenue": 299936,
+    "f_bRevenue": 589992,
+    "otherRevenue": 68412,
+    "totalRevenue": 933142,
+    "occPercentage": 28.3,
+    "adr": 68.22,
+    "hotelRoom": 18447.691,
+    "availableRooms": 14649,
+    "rev": {
+      "occupiedRooms": 201584,
+      "groupRooms": 130114,
+      "transientRooms": 81852
+    },
+    "rn": { "occupiedRooms": 4883, "groupRooms": 2314, "transientRooms": 1979 },
+    "occ": { "occupiedRooms": 20.9, "groupRooms": 16.7, "transientRooms": 5.6 },
+    "adrProfit": {
+      "occupiedRooms": 61.89,
+      "groupRooms": 52.5,
+      "transientRooms": 53.08
+    }
+  },
+  {
+    "propertyCode": "SR01",
+    "propertyName": "Sokha Angkor Resort (Luxury)",
+    "totalRoomInHotel": 693,
+    "roomRevenue": 229327,
+    "f_bRevenue": 686052,
+    "otherRevenue": 65133,
+    "totalRevenue": 913674,
+    "occPercentage": 25.4,
+    "adr": 62.18,
+    "hotelRoom": 17380.545,
+    "availableRooms": 13908,
+    "rev": {
+      "occupiedRooms": 285589,
+      "groupRooms": 157471,
+      "transientRooms": 93818
+    },
+    "rn": { "occupiedRooms": 4112, "groupRooms": 2450, "transientRooms": 1887 },
+    "occ": { "occupiedRooms": 25.8, "groupRooms": 13.4, "transientRooms": 6.2 },
+    "adrProfit": {
+      "occupiedRooms": 50.16,
+      "groupRooms": 63.06,
+      "transientRooms": 58.84
+    }
+  },
+  {
+    "propertyCode": "SR02",
+    "propertyName": "Sokha Siem Reap Resort & Convention Center",
+    "totalRoomInHotel": 788,
+    "roomRevenue": 253801,
+    "f_bRevenue": 589307,
+    "otherRevenue": 51119,
+    "totalRevenue": 803214,
+    "occPercentage": 27.2,
+    "adr": 50.61,
+    "hotelRoom": 16616.8,
+    "availableRooms": 13753,
+    "rev": {
+      "occupiedRooms": 210124,
+      "groupRooms": 133723,
+      "transientRooms": 88612
+    },
+    "rn": { "occupiedRooms": 3710, "groupRooms": 2959, "transientRooms": 1083 },
+    "occ": { "occupiedRooms": 29.8, "groupRooms": 16.4, "transientRooms": 6.2 },
+    "adrProfit": {
+      "occupiedRooms": 68.71,
+      "groupRooms": 65.41,
+      "transientRooms": 61.72
+    }
+  },
+  {
+    "propertyCode": "SR03",
+    "propertyName": "Sokha Palace Siem Reap Hotel (Comfort)",
+    "totalRoomInHotel": 774,
+    "roomRevenue": 289251,
+    "f_bRevenue": 606544,
+    "otherRevenue": 61390,
+    "totalRevenue": 924752,
+    "occPercentage": 21.2,
+    "adr": 55.79,
+    "hotelRoom": 16675.723,
+    "availableRooms": 14866,
+    "rev": {
+      "occupiedRooms": 294529,
+      "groupRooms": 142434,
+      "transientRooms": 85343
+    },
+    "rn": { "occupiedRooms": 3071, "groupRooms": 2722, "transientRooms": 1373 },
+    "occ": { "occupiedRooms": 24.6, "groupRooms": 12.1, "transientRooms": 6.5 },
+    "adrProfit": {
+      "occupiedRooms": 59.8,
+      "groupRooms": 65.56,
+      "transientRooms": 51.62
+    }
+  },
+  {
+    "propertyCode": "SR04",
+    "propertyName": "Sokha Private Mansion (Villas)",
+    "totalRoomInHotel": 806,
+    "roomRevenue": 211631,
+    "f_bRevenue": 612897,
+    "otherRevenue": 61170,
+    "totalRevenue": 630790,
+    "occPercentage": 28,
+    "adr": 68.81,
+    "hotelRoom": 15809.98,
+    "availableRooms": 13472,
+    "rev": {
+      "occupiedRooms": 218088,
+      "groupRooms": 145499,
+      "transientRooms": 91334
+    },
+    "rn": { "occupiedRooms": 3656, "groupRooms": 2418, "transientRooms": 1908 },
+    "occ": {
+      "occupiedRooms": 21.7,
+      "groupRooms": 19.5,
+      "transientRooms": 14.2
+    },
+    "adrProfit": {
+      "occupiedRooms": 51.89,
+      "groupRooms": 51.2,
+      "transientRooms": 53.46
+    }
+  },
+  {
+    "propertyCode": "SV01",
+    "propertyName": "Sokha Beach Resort",
+    "totalRoomInHotel": 747,
+    "roomRevenue": 215694,
+    "f_bRevenue": 574968,
+    "otherRevenue": 51114,
+    "totalRevenue": 1068229,
+    "occPercentage": 24.9,
+    "adr": 63.05,
+    "hotelRoom": 17597.558,
+    "availableRooms": 14441,
+    "rev": {
+      "occupiedRooms": 227878,
+      "groupRooms": 145441,
+      "transientRooms": 97968
+    },
+    "rn": { "occupiedRooms": 3808, "groupRooms": 2160, "transientRooms": 1356 },
+    "occ": {
+      "occupiedRooms": 23.9,
+      "groupRooms": 12.2,
+      "transientRooms": 14.6
+    },
+    "adrProfit": {
+      "occupiedRooms": 65.72,
+      "groupRooms": 52.37,
+      "transientRooms": 65.9
+    }
+  },
+  {
+    "propertyCode": "SV02",
+    "propertyName": "Sokha Bayview by Sokha Beach Resort",
+    "totalRoomInHotel": 869,
+    "roomRevenue": 215284,
+    "f_bRevenue": 648421,
+    "otherRevenue": 62194,
+    "totalRevenue": 875198,
+    "occPercentage": 29.2,
+    "adr": 67.9,
+    "hotelRoom": 16438.66,
+    "availableRooms": 13755,
+    "rev": {
+      "occupiedRooms": 269193,
+      "groupRooms": 123287,
+      "transientRooms": 89349
+    },
+    "rn": { "occupiedRooms": 4542, "groupRooms": 2815, "transientRooms": 1530 },
+    "occ": { "occupiedRooms": 22.4, "groupRooms": 10.6, "transientRooms": 15 },
+    "adrProfit": {
+      "occupiedRooms": 55.56,
+      "groupRooms": 66.91,
+      "transientRooms": 54.42
+    }
+  },
+  {
+    "propertyCode": "SV03",
+    "propertyName": "Lakeside by Sokha Beach Resort",
+    "totalRoomInHotel": 797,
+    "roomRevenue": 238358,
+    "f_bRevenue": 520524,
+    "otherRevenue": 64854,
+    "totalRevenue": 858445,
+    "occPercentage": 26.5,
+    "adr": 61.66,
+    "hotelRoom": 16975.047,
+    "availableRooms": 13404,
+    "rev": {
+      "occupiedRooms": 296038,
+      "groupRooms": 157216,
+      "transientRooms": 92353
+    },
+    "rn": { "occupiedRooms": 4782, "groupRooms": 2326, "transientRooms": 1672 },
+    "occ": { "occupiedRooms": 28.8, "groupRooms": 10, "transientRooms": 11.8 },
+    "adrProfit": {
+      "occupiedRooms": 62.44,
+      "groupRooms": 68.57,
+      "transientRooms": 54.49
+    }
+  },
+  {
+    "propertyCode": "SV04",
+    "propertyName": "Moha Mohori by Sokha Beach Resort",
+    "totalRoomInHotel": 824,
+    "roomRevenue": 281476,
+    "f_bRevenue": 509676,
+    "otherRevenue": 68290,
+    "totalRevenue": 815312,
+    "occPercentage": 22.6,
+    "adr": 52.89,
+    "hotelRoom": 18412.738,
+    "availableRooms": 14360,
+    "rev": {
+      "occupiedRooms": 218976,
+      "groupRooms": 148759,
+      "transientRooms": 88392
+    },
+    "rn": { "occupiedRooms": 3646, "groupRooms": 2468, "transientRooms": 1395 },
+    "occ": { "occupiedRooms": 26.6, "groupRooms": 17.1, "transientRooms": 6.6 },
+    "adrProfit": {
+      "occupiedRooms": 58.47,
+      "groupRooms": 58.27,
+      "transientRooms": 60.06
+    }
+  },
+  {
+    "propertyCode": "KP01",
+    "propertyName": "Thansur Sokha Hotel",
+    "totalRoomInHotel": 766,
+    "roomRevenue": 251517,
+    "f_bRevenue": 617454,
+    "otherRevenue": 45173,
+    "totalRevenue": 918137,
+    "occPercentage": 29.6,
+    "adr": 50.19,
+    "hotelRoom": 17542.774,
+    "availableRooms": 13488,
+    "rev": {
+      "occupiedRooms": 253471,
+      "groupRooms": 138359,
+      "transientRooms": 81563
+    },
+    "rn": { "occupiedRooms": 3478, "groupRooms": 2044, "transientRooms": 1282 },
+    "occ": { "occupiedRooms": 29.1, "groupRooms": 12.5, "transientRooms": 9.6 },
+    "adrProfit": {
+      "occupiedRooms": 55.81,
+      "groupRooms": 57.56,
+      "transientRooms": 59.07
+    }
+  },
+  {
+    "propertyCode": "KP02",
+    "propertyName": "Le Bokor Palace",
+    "totalRoomInHotel": 821,
+    "roomRevenue": 287152,
+    "f_bRevenue": 651134,
+    "otherRevenue": 42046,
+    "totalRevenue": 825471,
+    "occPercentage": 27.1,
+    "adr": 69.99,
+    "hotelRoom": 19798.764,
+    "availableRooms": 14139,
+    "rev": {
+      "occupiedRooms": 277908,
+      "groupRooms": 142687,
+      "transientRooms": 89077
+    },
+    "rn": { "occupiedRooms": 4655, "groupRooms": 2134, "transientRooms": 1564 },
+    "occ": { "occupiedRooms": 24.6, "groupRooms": 12.9, "transientRooms": 6.3 },
+    "adrProfit": {
+      "occupiedRooms": 64.22,
+      "groupRooms": 52.85,
+      "transientRooms": 55.12
+    }
+  }
+]

@@ -1,21 +1,21 @@
-import { dashboardSampleV0_4MealDetailData as mealDetailData } from '@/data/sampledata_meal_detail';
-import { Table, Typography } from 'antd';
-import { StyledPeriodDetail } from './PeriodDetail.styled';
-import PeriodTable from '@/components/PeriodTable';
+import { dashboardSampleV0_4MealDetailData as mealDetailData } from "@/data/sampledata_meal_detail";
+import { Table, Typography } from "antd";
+import { StyledPeriodDetail } from "./PeriodDetail.styled";
+import PeriodTable from "@/components/PeriodTable";
 
 const PeriodDetail = () => {
   const columns = [
-    { title: 'Date', dataIndex: 'date', key: 'date' },
-    { title: 'RCV', dataIndex: 'rcv', key: 'rcv' },
-    { title: 'Period', dataIndex: 'period', key: 'period' },
-    { title: 'A.Count', dataIndex: 'aCount', key: 'aCount' },
-    { title: 'C.Count', dataIndex: 'cCount', key: 'cCount' },
-    { title: 'A.Sales', dataIndex: 'aSales', key: 'aSales' },
-    { title: 'C.Sales', dataIndex: 'cSales', key: 'cSales' },
-    { title: 'Count', dataIndex: 'count', key: 'count' },
-    { title: 'Count %', dataIndex: 'countPercentage', key: 'countPercentage' },
-    { title: 'Sales', dataIndex: 'sales', key: 'sales' },
-    { title: 'Sales%', dataIndex: 'salesPercentage', key: 'salesPercentage' },
+    { title: "Date", dataIndex: "date", key: "date" },
+    { title: "RCV", dataIndex: "rcv", key: "rcv" },
+    { title: "Period", dataIndex: "period", key: "period" },
+    { title: "A.Count", dataIndex: "aCount", key: "aCount" },
+    { title: "C.Count", dataIndex: "cCount", key: "cCount" },
+    { title: "A.Sales", dataIndex: "aSales", key: "aSales" },
+    { title: "C.Sales", dataIndex: "cSales", key: "cSales" },
+    { title: "Count", dataIndex: "count", key: "count" },
+    { title: "Count %", dataIndex: "countPercentage", key: "countPercentage" },
+    { title: "Sales", dataIndex: "sales", key: "sales" },
+    { title: "Sales%", dataIndex: "salesPercentage", key: "salesPercentage" },
   ];
 
   const dataSource = mealDetailData?.map((item) => ({
@@ -45,9 +45,9 @@ const PeriodDetail = () => {
       sales: outletItem.total.total_actual.sales,
       salesPercentage: outletItem.total.total_actual.percentage_sales,
       children: [
-        childrenPeriodDataSource(outletItem.breakfast, 'breakfast'),
-        childrenPeriodDataSource(outletItem.lunch, 'lunch'),
-        childrenPeriodDataSource(outletItem.dinner, 'dinner'),
+        childrenPeriodDataSource(outletItem.breakfast, "breakfast"),
+        childrenPeriodDataSource(outletItem.lunch, "lunch"),
+        childrenPeriodDataSource(outletItem.dinner, "dinner"),
       ],
     }));
     return outletResponse;
@@ -80,7 +80,7 @@ const PeriodDetail = () => {
   return (
     <StyledPeriodDetail>
       <Typography.Title level={3}>Period Detail</Typography.Title>
-      <Table size='small' columns={columns} dataSource={dataSource} />
+      <Table size="small" columns={columns} dataSource={dataSource} />
     </StyledPeriodDetail>
   );
 };

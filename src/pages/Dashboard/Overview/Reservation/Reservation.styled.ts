@@ -1,10 +1,10 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const StyledReservation = styled.div`
   .reservation-select-container {
-    display: flex;
-    justify-content: flex-end;
-    margin-bottom: 10px;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: white;
   }
 
   .apexcharts-legend {

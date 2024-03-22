@@ -1,8 +1,7 @@
-import { Typography } from 'antd';
-import { StyledBookForecast } from './BookForecast.styled';
-import bookForecast from '@/data/bookForecast.json';
-import { useEffect, useRef } from 'react';
-import ApexCharts from 'apexcharts';
+import { Typography } from "antd";
+import { StyledBookForecast } from "./BookForecast.styled";
+import { useEffect, useRef } from "react";
+import ApexCharts from "apexcharts";
 
 const BookForecast = () => {
   const chartRef = useRef(null);
@@ -11,16 +10,16 @@ const BookForecast = () => {
     const options = {
       chart: {
         height: 350,
-        type: 'line',
+        type: "line",
         stacked: false,
       },
       dataLabels: {
         enabled: true,
       },
-      colors: ['#FF1654', '#56a4c5', '#72d71f'],
+      colors: ["#FF1654", "#56a4c5", "#72d71f"],
       series: [
         {
-          name: 'OCC',
+          name: "OCC",
           data: [1],
         },
       ],
@@ -37,17 +36,17 @@ const BookForecast = () => {
           },
           axisBorder: {
             show: true,
-            color: '#000',
+            color: "#000",
           },
           labels: {
             style: {
-              colors: '#1f2412',
+              colors: "#1f2412",
             },
           },
           title: {
-            text: 'Figure',
+            text: "Figure",
             style: {
-              color: '#265336',
+              color: "#265336",
             },
           },
         },
@@ -60,7 +59,7 @@ const BookForecast = () => {
         },
       },
       legend: {
-        horizontalAlign: 'left',
+        horizontalAlign: "left",
         offsetX: 40,
       },
     };
@@ -74,7 +73,7 @@ const BookForecast = () => {
   return (
     <StyledBookForecast>
       <Typography.Title level={4}>Forecast On The Book</Typography.Title>
-      <div id='chart' ref={chartRef} />
+      <div id="chart" ref={chartRef} />
     </StyledBookForecast>
   );
 };

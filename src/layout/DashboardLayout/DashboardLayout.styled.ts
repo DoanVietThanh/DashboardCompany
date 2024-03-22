@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const StyledDashboardLayout = styled.div`
   height: 100vh;
@@ -19,5 +19,6 @@ export const StyledDashboardLayout = styled.div`
     padding: 20px;
     flex: 1;
     overflow-y: auto;
+    background-color: #f1f1f2;
   }
 `;

@@ -1,14 +1,10 @@
-import resevationJSON from '@/data/reservation.json';
-import {
-  ObjectName,
-  ReservationForecast,
-  ResponseItem,
-} from '@/types/reservation.types';
-import ApexCharts from 'apexcharts';
-import moment from 'moment';
-import { useEffect, useRef, useState } from 'react';
-import { Select, Typography } from 'antd';
-import { StyledReservation } from './Reservation.styled';
+import resevationJSON from "@/data/reservation.json";
+import { ObjectName, ReservationForecast, ResponseItem } from "@/types/reservation.types";
+import ApexCharts from "apexcharts";
+import moment from "moment";
+import { useEffect, useRef, useState } from "react";
+import { Flex, Select, Typography } from "antd";
+import { StyledReservation } from "./Reservation.styled";
 
 const Reservation = () => {
   const chartRef = useRef(null);
@@ -17,36 +13,29 @@ const Reservation = () => {
   let depRoomsData: ResponseItem = {};
   const [totalMonth, setTotalMonth] = useState<number>(6);
 
-  const reservationForecast: ReservationForecast[] = resevationJSON.map(
-    (item) => ({
-      ...item,
-      date: moment(item.date).format('DD/MM/YYYY'),
-      month: moment(item.date).format('MM'),
-    })
-  );
+  const reservationForecast: ReservationForecast[] = resevationJSON.map((item) => ({
+    ...item,
+    date: moment(item.date).format("DD/MM/YYYY"),
+    month: moment(item.date).format("MM"),
+  }));
 
   reservationForecast.forEach((item) => {
-    totalOCCData[item.month] =
-      (totalOCCData[item.month] | 0) + (item.totalOCC || 0);
-
-    arrRoomsData[item.month] =
-      (arrRoomsData[item.month] | 0) + (item.arrRooms || 0);
-
-    depRoomsData[item.month] =
-      (depRoomsData[item.month] | 0) + (item.depRooms || 0);
+    totalOCCData[item.month] = (totalOCCData[item.month] | 0) + (item.totalOCC || 0);
+    arrRoomsData[item.month] = (arrRoomsData[item.month] | 0) + (item.arrRooms || 0);
+    depRoomsData[item.month] = (depRoomsData[item.month] | 0) + (item.depRooms || 0);
   });
 
   useEffect(() => {
     const options = {
       chart: {
         height: 350,
-        type: 'line',
+        type: "line",
         stacked: false,
       },
       dataLabels: {
         enabled: true,
       },
-      colors: ['#FF1654', '#56a4c5', '#72d71f'],
+      colors: ["#FF1654", "#56a4c5", "#72d71f"],
       series: [
         {
           name: ObjectName.TOTAL_OCC,
@@ -74,17 +63,17 @@ const Reservation = () => {
           },
           axisBorder: {
             show: true,
-            color: '#000',
+            color: "#000",
           },
           labels: {
             style: {
-              colors: '#1f2412',
+              colors: "#1f2412",
             },
           },
           title: {
-            text: 'Figure',
+            text: "Figure",
             style: {
-              color: '#265336',
+              color: "#265336",
             },
           },
         },
@@ -97,11 +86,10 @@ const Reservation = () => {
         },
       },
       legend: {
-        horizontalAlign: 'left',
+        horizontalAlign: "left",
         offsetX: 40,
       },
     };
-
     const chart = new ApexCharts(chartRef.current, options);
     chart.render();
     return () => {
@@ -113,19 +101,21 @@ const Reservation = () => {
   return (
     <StyledReservation>
       <Typography.Title level={4}>Reservation Statistic</Typography.Title>
-      <div className='reservation-select-container'>
-        <Select
-          style={{ width: 120 }}
-          onChange={handleChange}
-          defaultValue={totalMonth}
-          options={[
-            { value: 1, label: '1 tháng' },
-            { value: 3, label: '3 tháng' },
-            { value: 6, label: '6 tháng' },
-          ]}
-        />
+      <div className="reservation-select-container">
+        <Flex justify="flex-end">
+          <Select
+            style={{ width: 120 }}
+            onChange={handleChange}
+            defaultValue={totalMonth}
+            options={[
+              { value: 1, label: "1 tháng" },
+              { value: 3, label: "3 tháng" },
+              { value: 6, label: "6 tháng" },
+            ]}
+          />
+        </Flex>
+        <div id="chart" ref={chartRef} />
       </div>
-      <div id='chart' ref={chartRef} />
     </StyledReservation>
   );
 };
