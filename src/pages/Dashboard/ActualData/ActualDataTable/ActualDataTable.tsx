@@ -1,10 +1,10 @@
+import { filterData } from "@/constants/ActualDataTable.constants";
 import { GlanceReport } from "@/types/glanceReport.types";
 import { Button, Divider, Flex, Table, TreeSelect, Typography } from "antd";
-import { useState } from "react";
-import { StyledActualDataTable } from "./ActualDataTable.styled";
-import { filterData, initTotal } from "@/constants/ActualDataTable.constants";
 import { TableRowSelection } from "antd/es/table/interface";
+import { useState } from "react";
 import ActualDataSummary from "./ActualDataSummary";
+import { StyledActualDataTable } from "./ActualDataTable.styled";
 
 type ActualDataTableProps = {
   actualJSONData: GlanceReport[];

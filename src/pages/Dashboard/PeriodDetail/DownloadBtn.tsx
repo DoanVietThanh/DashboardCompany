@@ -6,20 +6,6 @@ type DownloadBtnProps = {
   dataSource: unknown;
 };
 
-type Data = {
-  date: string;
-  rcv: string;
-  period: string;
-  aCount: string;
-  cCount: string;
-  aSales: string;
-  cSales: string;
-  count: string;
-  countPercentage: string;
-  sales: string;
-  salesPercentage: string;
-};
-
 const headers = [
   { label: "Date", key: "date" },
   { label: "RCV", key: "rcv" },
