@@ -12,7 +12,12 @@ export const StyledHeader = styled.div`
   }
 
   .header-date {
+    color: white;
+    border-radius: 10px;
+    width: fit-content;
     font-weight: 600;
     font-size: 18px;
+    padding: 6px 10px;
+    background-color: #edaf44;
   }
 `;

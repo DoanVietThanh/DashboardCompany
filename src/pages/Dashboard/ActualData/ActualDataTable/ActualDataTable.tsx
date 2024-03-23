@@ -1,6 +1,6 @@
 import { filterData } from "@/constants/ActualDataTable.constants";
 import { GlanceReport } from "@/types/glanceReport.types";
-import { Button, Divider, Flex, Table, TreeSelect, Typography } from "antd";
+import { Button, Divider, Flex, Table, TreeSelect } from "antd";
 import { TableRowSelection } from "antd/es/table/interface";
 import { useState } from "react";
 import ActualDataSummary from "./ActualDataSummary";
@@ -8,17 +8,22 @@ import { StyledActualDataTable } from "./ActualDataTable.styled";
 
 type ActualDataTableProps = {
   actualJSONData: GlanceReport[];
+  data: GlanceReport[];
+  setData: React.Dispatch<React.SetStateAction<GlanceReport[]>>;
 };
 
-const ActualDataTable = ({ actualJSONData }: ActualDataTableProps) => {
-  const { SHOW_PARENT } = TreeSelect;
+const ActualDataTable = ({ actualJSONData, data, setData }: ActualDataTableProps) => {
   const { Column, ColumnGroup } = Table;
+  const { SHOW_PARENT } = TreeSelect;
+
+  const initData = [...actualJSONData];
+  // const [data, setData] = useState<GlanceReport[]>(initData);
+
   const [filterColumnValue, setFilterColumnValue] = useState([] as string[]);
   const [selectedRowKeys, setSelectedRowKeys] = useState<React.Key[]>([]);
 
-  const handleSelectHiddenColumns = (newFilterColumnValue: string[]) => {
-    setFilterColumnValue(newFilterColumnValue);
-  };
+  const handleSelectHiddenColumns = (newFilterColumnValue: string[]) => setFilterColumnValue(newFilterColumnValue);
+  const onSelectChange = (newSelectedRowKeys: React.Key[]) => setSelectedRowKeys(newSelectedRowKeys);
 
   const tProps = {
     treeData: filterData,
@@ -30,11 +35,6 @@ const ActualDataTable = ({ actualJSONData }: ActualDataTableProps) => {
     style: {
       width: "100%",
     },
-  };
-
-  const onSelectChange = (newSelectedRowKeys: React.Key[]) => {
-    console.log("selectedRowKeys changed: ", newSelectedRowKeys);
-    setSelectedRowKeys(newSelectedRowKeys);
   };
 
   const rowSelection: TableRowSelection<GlanceReport> = {
@@ -50,9 +50,7 @@ const ActualDataTable = ({ actualJSONData }: ActualDataTableProps) => {
         onSelect: (changeableRowKeys) => {
           let newSelectedRowKeys = [];
           newSelectedRowKeys = changeableRowKeys.filter((_, index) => {
-            if (index % 2 !== 0) {
-              return false;
-            }
+            if (index % 2 !== 0) return false;
             return true;
           });
           setSelectedRowKeys(newSelectedRowKeys);
@@ -64,9 +62,7 @@ const ActualDataTable = ({ actualJSONData }: ActualDataTableProps) => {
         onSelect: (changeableRowKeys) => {
           let newSelectedRowKeys = [];
           newSelectedRowKeys = changeableRowKeys.filter((_, index) => {
-            if (index % 2 !== 0) {
-              return true;
-            }
+            if (index % 2 !== 0) return true;
             return false;
           });
           setSelectedRowKeys(newSelectedRowKeys);
@@ -75,14 +71,21 @@ const ActualDataTable = ({ actualJSONData }: ActualDataTableProps) => {
     ],
   };
 
+  const handleFilterRows = () => {
+    const selectedData = [...data].filter((item) => selectedRowKeys.includes(item.key as number));
+    setData(selectedData);
+  };
+
+  const handleResetRows = () => {
+    setData(initData);
+    setSelectedRowKeys([]);
+  };
+
   return (
     <StyledActualDataTable>
       <Flex vertical gap={20}>
-        <Flex>
-          <Typography.Title level={5}>Hidden Columns</Typography.Title>
-          <TreeSelect {...tProps} />
-        </Flex>
-        <Flex justify="flex-end">
+        <Flex gap={10}>
+          <TreeSelect {...tProps} size="small" />
           <Button type="primary" onClick={() => setFilterColumnValue([])}>
             Clear Hidden Filters
           </Button>
@@ -93,10 +96,22 @@ const ActualDataTable = ({ actualJSONData }: ActualDataTableProps) => {
 
       <Table
         size="small"
-        dataSource={actualJSONData}
+        dataSource={data}
         rowSelection={rowSelection}
         scroll={{ x: 1500, y: 400 }}
         summary={(data) => <ActualDataSummary data={data} filterColumnValue={filterColumnValue} />}
+        footer={() =>
+          selectedRowKeys.length > 0 && (
+            <Flex justify="flex-end" gap={20}>
+              <Button type="dashed" onClick={handleResetRows}>
+                Reset Filter
+              </Button>
+              <Button type="primary" onClick={handleFilterRows}>
+                Filter rows
+              </Button>
+            </Flex>
+          )
+        }
       >
         <Column title="Property" dataIndex="propertyCode" key="propertyCode" fixed={"left"} width={100} hidden={filterColumnValue.includes("propertyCode")} />
         <Column title="Property Name" dataIndex="propertyName" key="propertyName" width={300} hidden={filterColumnValue.includes("propertyName")} />

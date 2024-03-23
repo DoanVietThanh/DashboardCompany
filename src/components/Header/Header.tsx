@@ -6,7 +6,7 @@ const Header = () => {
   return (
     <StyledHeader>
       <Flex justify="space-between" align="center">
-        <Flex vertical gap={10}>
+        <Flex align="center" gap={10}>
           <h3 className="header-welcome">Welcome to INFOTEL Company </h3>
           <Space className="header-date">{moment().format("DD / MM / YYYY")}</Space>
         </Flex>

@@ -9,40 +9,39 @@ type ActualDataSummaryProps = {
 };
 
 const ActualDataSummary = ({ data, filterColumnValue }: ActualDataSummaryProps) => {
-  console.log("🚀 ~ ActualDataSummary ~ data:", data);
-  //   const total: GlanceReport = initTotal;
   const [total, setTotal] = useState<GlanceReport>(initTotal);
 
   useEffect(() => {
-    console.log("🚀 ~ ActualDataSummary ~ total:", total.totalRoomInHotel);
-    setTotal((prev) => ({ ...prev, ...initTotal }));
+    let newTotal = { ...initTotal };
+
     data.forEach((item) => {
-      total["totalRoomInHotel"] = total.totalRoomInHotel + item.totalRoomInHotel;
-      total["roomRevenue"] = total.roomRevenue + item.roomRevenue;
-      total["f_bRevenue"] = total.f_bRevenue + item.f_bRevenue;
-      total["otherRevenue"] = total.otherRevenue + item.otherRevenue;
-      total["totalRevenue"] = total.totalRevenue + item.totalRevenue;
-      total["occPercentage"] = total.occPercentage + item.occPercentage;
-      total["adr"] = total.adr + item.adr;
-      total["hotelRoom"] = total.hotelRoom + item.hotelRoom;
-      total["availableRooms"] = total.availableRooms + item.availableRooms;
+      newTotal["totalRoomInHotel"] = newTotal.totalRoomInHotel + item.totalRoomInHotel;
+      newTotal["roomRevenue"] = newTotal.roomRevenue + item.roomRevenue;
+      newTotal["f_bRevenue"] = newTotal.f_bRevenue + item.f_bRevenue;
+      newTotal["otherRevenue"] = newTotal.otherRevenue + item.otherRevenue;
+      newTotal["totalRevenue"] = newTotal.totalRevenue + item.totalRevenue;
+      newTotal["occPercentage"] = newTotal.occPercentage + item.occPercentage;
+      newTotal["adr"] = newTotal.adr + item.adr;
+      newTotal["hotelRoom"] = newTotal.hotelRoom + item.hotelRoom;
+      newTotal["availableRooms"] = newTotal.availableRooms + item.availableRooms;
 
-      total.rev.occupiedRooms = total.rev.occupiedRooms + item.rev.occupiedRooms;
-      total.rev.groupRooms = total.rev.groupRooms + item.rev.groupRooms;
-      total.rev.transientRooms = total.rev.transientRooms + item.rev.transientRooms;
+      newTotal.rev.occupiedRooms = newTotal.rev.occupiedRooms + item.rev.occupiedRooms;
+      newTotal.rev.groupRooms = newTotal.rev.groupRooms + item.rev.groupRooms;
+      newTotal.rev.transientRooms = newTotal.rev.transientRooms + item.rev.transientRooms;
 
-      total.rn.occupiedRooms = total.rn.occupiedRooms + item.rn.occupiedRooms;
-      total.rn.groupRooms = total.rn.groupRooms + item.rn.groupRooms;
-      total.rn.transientRooms = total.rn.transientRooms + item.rn.transientRooms;
+      newTotal.rn.occupiedRooms = newTotal.rn.occupiedRooms + item.rn.occupiedRooms;
+      newTotal.rn.groupRooms = newTotal.rn.groupRooms + item.rn.groupRooms;
+      newTotal.rn.transientRooms = newTotal.rn.transientRooms + item.rn.transientRooms;
 
-      total.occ.occupiedRooms = total.occ.occupiedRooms + item.occ.occupiedRooms;
-      total.occ.groupRooms = total.occ.groupRooms + item.occ.groupRooms;
-      total.occ.transientRooms = total.occ.transientRooms + item.occ.transientRooms;
+      newTotal.occ.occupiedRooms = newTotal.occ.occupiedRooms + item.occ.occupiedRooms;
+      newTotal.occ.groupRooms = newTotal.occ.groupRooms + item.occ.groupRooms;
+      newTotal.occ.transientRooms = newTotal.occ.transientRooms + item.occ.transientRooms;
 
-      total.adrProfit.occupiedRooms = total.adrProfit.occupiedRooms + item.adrProfit.occupiedRooms;
-      total.adrProfit.groupRooms = total.adrProfit.groupRooms + item.adrProfit.groupRooms;
-      total.adrProfit.transientRooms = total.adrProfit.transientRooms + item.adrProfit.transientRooms;
+      newTotal.adrProfit.occupiedRooms = newTotal.adrProfit.occupiedRooms + item.adrProfit.occupiedRooms;
+      newTotal.adrProfit.groupRooms = newTotal.adrProfit.groupRooms + item.adrProfit.groupRooms;
+      newTotal.adrProfit.transientRooms = newTotal.adrProfit.transientRooms + item.adrProfit.transientRooms;
     });
+    setTotal(newTotal);
   }, [data]);
 
   return (
